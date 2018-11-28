@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Jmol, see http://www.jmol.org">
+  <meta name ="author" content = "Frank Jenkins">
+  <meta name ="keywords" content = "generated_by_Jmol_Webexport">
+  <title>Protein Structure Prediction</title>
+  <style type="text/css">
+	body, html { height:100%; overflow:hidden; margin:0; padding:0; }
+	h1 { font-size:1.5em; text-align:center; }
+	.section { clear:both; padding:0.6em 0; }
+	#Text_Buttons { padding:0 1ex; }
+  #JSmol_loading_msg{
+      color:orange;
+  }
+  .JmolTextPane {
+		position:absolute; top:0; 
+		left:0;
+		width:40%;
+		height:100%;
+		overflow:auto;
+  }
+  .JmolPane {
+		position:absolute; top:0; 
+		left:40%;
+		width:60%;
+		height:100%;
+		overflow:hidden;
+  }
+  .JmolViewerPane{
+		width:99%;
+		height:100%;
+		overflow:hidden;
+  }
+  .JmolWidgetPane {
+		width:100%;
+		height:0%;
+		overflow:auto;
+		font-size:0.9em;
+  }
+  .JmolWidgetPane table { margin:0 auto; }
+  .JmolButtonDiv{
+      width:99%;
+      text-align:center;
+  }
+  .update-info {
+		clear:both;
+		padding-top:1em;
+		text-align:right;
+		font-size:0.75em;
+		font-style:italic;
+  }
+	.update-info + .update-info {
+		padding-top:0.2em;
+		margin-bottom:1em;
+	}
+	.widgetItemScBtn { /* each widget in a ScriptButton page goes in a table cell with this class */
+		text-align:center; padding:0.5ex;
+	}
+	.widgetItemAnim { /* AnimationWidget is taller than the others, put it to the right so everything fits better */
+		 float:right;margin:2px 5px;
+	}
+	.JmolColorPicker_vis { position:relative!important; } /*override, to allow scrolling to bottom of palette*/
+
+  </style>
+  <!-- Below is used locally but not on server. May generate warnings. -->
+  <script type="text/javascript" src="jsmol/JSmol.min.js"></script>
+  <script src="support.js" type="text/javascript"></script>
+  
+  
+  <!-- Below is used on server, but not locally. May generate warnings.-->
+  <script type="text/javascript" src="https://francismjenkins.github.io/Protein_3D/jsmol/JSmol.min.js"></script>
+  <script type="text/javascript">
+  var jmolApplet0 = "jmolApplet0"; //our viewer
+  var jmolInfo; //setup parameters
+  ;(function() {
+
+// Developers: The debugCode flag is checked in j2s/java/core.z.js, 
+// and, if TRUE, skips loading the core methods, forcing those
+// to be read from their individual directories. Set this
+// true if you want to do some code debugging by inserting
+// System.out.println, document.title, or alert commands
+// anywhere in the Java or Jmol code.
+
+var s = document.location.search;
+Jmol.debugCode = (s.indexOf("debugcode") >= 0);
+
+
+jmol_isReady = function(jmolApplet) {
+    elem = document.getElementById("JSmol_loading_msg");
+    elem.style.visibility="hidden";
+    elem.style.height="0";
+    elem.style.border="none";
+ }		
+
+
+jmolInfo = {
+	width: "100%",
+	height: "100%",
+	debug: false,
+	color: "white",
+	addSelectionOptions: false,
+	use: "HTML5",
+	coverImage: "Swiss-Model.png",        // initial image instead of applet
+	coverScript: "",	// special script for click of cover image (otherwise equal to script)
+	deferApplet: false,                  // wait to load applet until click
+	deferUncover: true,                 // wait to uncover applet until script completed
+	//The paths below assume your server is set up with standard JSmol directory.  If not
+	//they will need modification for the page to work.
+	jarPath: "https://francismjenkins.github.io/Protein_3D/jsmol/java", //path to applet .jar files on server.
+	j2sPath: "https://francismjenkins.github.io/Protein_3D/jsmol/j2s",//path to javascript version.
+	serverURL: "https://francismjenkins.github.io/Protein_3D/jsmol/php/jsmol.php", //if your own server does not allow php, you can change to http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php
+	makeLiveImg:"https://francismjenkins.github.io/Protein_3D/jsmol/j2s/img/play_make_live.jpg",//path to activate 3-D image.
+	jarFile: "JmolAppletSigned0.jar",
+	isSigned: true,
+	//disableJ2SLoadMonitor: true,
+	disableInitialConsole: true,
+	readyFunction: jmol_isReady,
+	//defaultModel: "ethylene/ethylene.xyz",
+	script: "load Swiss-Model.spt"
+}
+
+// ?_USE=JAVA   ?_USE=SIGNED   ?_USE=HTML5
+   if (s.indexOf("USE=") >= 0)
+     jmolInfo.use = s.split("USE=")[1].split("&")[0]
+   else if (s.indexOf("JAVA") >= 0)
+     jmolInfo.use = "JAVA"
+   else if (s.indexOf("IMAGE") >= 0)
+     jmolInfo.use = "IMAGE"
+   else if (s.indexOf("NOWEBGL") >= 0)
+     jmolInfo.use = "JAVA IMAGE"
+   else if (s.indexOf("WEBGL") >= 0)
+     jmolInfo.use = "WEBGL HTML5"
+   if (s.indexOf("NOWEBGL") >= 0)
+     jmolInfo.use = use.replace(/WEBGL/,"")
+   var useSignedApplet = (s.indexOf("SIGNED") >= 0);
+   if(useSignedApplet && jmolInfo.use == "HTML5") jmolInfo.use = "JAVA";
+
+   var protocol = window.location.protocol.toLowerCase();
+   if (protocol == "file:") { 
+    jmolInfo.jarPath = "jsmol/java";
+    jmolInfo.j2sPath = "jsmol/j2s";
+    jmolInfo.serverURL = "http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php"; //you can change to your own path
+    jmolInfo.makeLiveImg = "jsmol/j2s/img/play_make_live.jpg";
+    jmolInfo.jarFile = "JmolAppletSigned.jar";
+    jmolInfo.isSigned= "true";
+  }
+})();
+
+$(document).ready(function(){
+    $("#Jmol").html(Jmol.getAppletHtml(jmolApplet0, jmolInfo));
+});
+  </script>
+
+</head>
+<body>
+  <div class="JmolTextPane">
+    <div id="Text_Buttons">
+      <div id="JSmol_loading_msg">
+        Once the molecule file is fully loaded, the image at right will become live.  At that time the "activate 3-D" icon <img id="make_live_icon" src="" height="15px" /> will disappear.
+				<hr>
+      </div>
+      <h1>
+        
+      </h1>
+			<p>
+			</p>
+			<div>
+      <div id="section_Swiss-Model" class="section">
+
+The button &#x201C;Swiss-Model&#x201D; will appear below.  Insert information for &#x201C;Swiss-Model&#x201D; here and below.
+  <div id="Swiss-Model" class="JmolButtonDiv">    
+    <button onclick="Jmol.script(jmolApplet0,'load Swiss-Model.spt;'); updateScriptButtonWidgets(0);">Swiss-Model</button>
+    <div id="jmolCntl0" style="visibility:hidden; display:none;">
+      
+    </div>
+  </div>
+Insert more information for &#x201C;Swiss-Model&#x201D; here.
+  
+</div>
+<div id="section_Phyre2" class="section">
+
+The button &#x201C;Phyre2&#x201D; will appear below.  Insert information for &#x201C;Phyre2&#x201D; here and below.
+  <div id="Phyre2" class="JmolButtonDiv">    
+    <button onclick="Jmol.script(jmolApplet0,'load Phyre2.spt;'); updateScriptButtonWidgets(1);">Phyre2</button>
+    <div id="jmolCntl1" style="visibility:hidden; display:none;">
+      
+    </div>
+  </div>
+Insert more information for &#x201C;Phyre2&#x201D; here.
+  
+</div>
+<div id="section_Swiss-Mutated" class="section">
+
+The button &#x201C;Swiss-Mutated&#x201D; will appear below.  Insert information for &#x201C;Swiss-Mutated&#x201D; here and below.
+  <div id="Swiss-Mutated" class="JmolButtonDiv">    
+    <button onclick="Jmol.script(jmolApplet0,'load Swiss-Mutated.spt;'); updateScriptButtonWidgets(2);">Swiss-Mutated</button>
+    <div id="jmolCntl2" style="visibility:hidden; display:none;">
+      
+    </div>
+  </div>
+Insert more information for &#x201C;Swiss-Mutated&#x201D; here.
+  
+</div>
+<div id="section_Phyre2-Mutated" class="section">
+
+The button &#x201C;Phyre2-Mutated&#x201D; will appear below.  Insert information for &#x201C;Phyre2-Mutated&#x201D; here and below.
+  <div id="Phyre2-Mutated" class="JmolButtonDiv">    
+    <button onclick="Jmol.script(jmolApplet0,'load Phyre2-Mutated.spt;'); updateScriptButtonWidgets(3);">Phyre2-Mutated</button>
+    <div id="jmolCntl3" style="visibility:hidden; display:none;">
+      
+    </div>
+  </div>
+Insert more information for &#x201C;Phyre2-Mutated&#x201D; here.
+  
+</div>
+
+			</div>
+      <p>You may look at any of these intermediate views again by clicking on the appropriate button.
+			</p>
+       <div id="creationdiv" class="update-info">
+       Page skeleton and JavaScript generated by the Export to Web module of  <a href="http://jmol.sourceforge.net">Jmol 14.29.28  2018-10-31 18:38</a>  on Nov 27, 2018.
+       </div>
+      <div id="authordiv" class="update-info">
+        Based on a template by A. Herr&#x00E1;ez and J. Gutow
+       </div>
+			 <p style="font-size:0.8em;">If your browser/OS combination is Java capable, you will get snappier performance if you <a href="?use=JAVA">use Java</a></p>
+
+       <div id="logdiv" style="display:none">
+         <pre>
+Using directory C:/Users/Frank/Desktop/Jmol_images
+  adding support.js
+  ...jmolApplet0
+      ...adding Swiss-Model.png
+copying and unzipping jsmol.zip directory into C:/Users/Frank/Desktop/Jmol_images
+      ...copying
+C:/Users/Frank/Desktop/Protein structure HW2/1fw1.pdb
+         to
+      ...compressing large data file to
+C:/Users/Frank/Desktop/Jmol_images/1fw1.pdb.gz
+C:/Users/Frank/Desktop/Jmol_images/1fw1.pdb.gz
+      ...adding Swiss-Model.spt
+  ...jmolApplet1
+      ...adding Phyre2.png
+copying and unzipping jsmol.zip directory into C:/Users/Frank/Desktop/Jmol_images
+      ...copying
+C:/Users/Frank/Desktop/Protein structure HW2/phyre2final.casp.pdb
+         to
+      ...compressing large data file to
+C:/Users/Frank/Desktop/Jmol_images/phyre2final.casp.pdb.gz
+C:/Users/Frank/Desktop/Jmol_images/phyre2final.casp.pdb.gz
+      ...adding Phyre2.spt
+  ...jmolApplet2
+      ...adding Swiss-Mutated.png
+copying and unzipping jsmol.zip directory into C:/Users/Frank/Desktop/Jmol_images
+      ...copying
+C:/Users/Frank/Desktop/Protein structure HW2/swiss_mutated.pdb
+         to
+      ...compressing large data file to
+C:/Users/Frank/Desktop/Jmol_images/swiss_mutated.pdb.gz
+C:/Users/Frank/Desktop/Jmol_images/swiss_mutated.pdb.gz
+      ...adding Swiss-Mutated.spt
+  ...jmolApplet3
+      ...adding Phyre2-Mutated.png
+copying and unzipping jsmol.zip directory into C:/Users/Frank/Desktop/Jmol_images
+      ...copying
+C:/Users/Frank/Desktop/Protein structure HW2/Phyre2_mutated.pdb
+         to
+      ...compressing large data file to
+C:/Users/Frank/Desktop/Jmol_images/Phyre2_mutated.pdb.gz
+C:/Users/Frank/Desktop/Jmol_images/Phyre2_mutated.pdb.gz
+      ...adding Phyre2-Mutated.spt
+
+</pre>
+
+       </div>    
+    </div>
+  </div>
+	<div id="Viewer_and_Widgets" class="JmolPane">
+		<div id="Jmol" class="JmolViewerPane">This will be the viewer
+				 <img src="Swiss-Model.png" alt="still of jmol image" style="height:100%; width:100%"/>
+		</div>
+		<div id="JmolWidgets" class="JmolWidgetPane">
+			<div id="JmolCntl"></div>
+		</div>
+	</div>
+<script type="text/javascript">
+fixScriptButtonWidgets(4);
+</script>
+</body>
+</html>
